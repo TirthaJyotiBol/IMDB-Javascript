@@ -57,6 +57,11 @@ async function searchMovie(){
 }
 
 
+// this function works to move to movie detail page and shows details about that movie
+function moveToDetails(movieObject){
+    window.location.href  = '/moviepage.html?id='+movieObject.imdbID;
+}
+
 
 function populateInitialMovie(pageNumber){
     let request = fetch(`http://www.omdbapi.com/?s=marvel&page=${pageNumber}&apikey=${apiKey}`);
@@ -107,6 +112,11 @@ function createCardAllMovies(curr){
     footerCard.appendChild(heartIcon);
     footerCard.appendChild(detailIcon);
     movieCard.appendChild(movieName);
+
+    detailIcon.addEventListener('click',(e)=>{
+        moveToDetails(curr);
+    })
+
 }
 
 

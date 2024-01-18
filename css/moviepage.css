@@ -1,9 +1,56 @@
 *{
     margin: 0;
     padding: 0;
-    /* border: 1px solid white; */
 }
 
 body{
     background-color: rgb(1, 24, 43);
+}
+
+#movie-name{
+    color: rgb(255, 241, 38);
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 5%;
+}
+
+main{
+    width: 95vw;
+    margin: 3%;
+    margin-top: 4%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+main img{
+    width: 30%;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+.details{
+    width: 40%;
+    color: white;
+    font-size: 1.4rem;
+    margin-left: 5%;
+    flex-wrap: wrap;
+    border-left: 2px solid white;
+    padding-left: 14px;
+}
+
+span{
+    display: flex;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: rgb(255, 238, 0);
+}
+
+span p{
+    margin-left: 15px;
+    font-size: 1.3rem;
+    color: white;
+    /* margin-top: 4px; */
+    text-transform: capitalize;
 }
