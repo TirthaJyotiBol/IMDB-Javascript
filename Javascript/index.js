@@ -13,6 +13,50 @@ function bannerDetail(){
     })
 }
 
+async function searchMovie(){
+    let input = document.querySelector('#search_movie_input').value;
+    let recomendationHeading = document.querySelector('#all_movies_heading');
+    let allMoviesSection = document.querySelector('.all-movies');
+
+    input = input.trim();
+    
+    try{
+
+        let url =  `http://www.omdbapi.com/?s=${input}&page=1&apikey=${apiKey}`;
+        const req = await fetch(url);
+        const res = await req.json();
+
+        allMoviesSection.innerHTML = '';
+        if(input.length==0){
+            recomendationHeading.classList.remove('noMovieFound');
+            recomendationHeading.textContent = 'Recommended Movies';
+            populateInitialMovie(4);
+            return;
+        }
+        
+        if(res.Response==="True"){
+            recomendationHeading.classList.remove('noMovieFound');
+            allMoviesSection.style.display = 'flex';
+            recomendationHeading.textContent = 'Recommended Movies';
+            
+            let array = res.Search;
+
+            array.forEach((curr)=>{
+                createCardAllMovies(curr);
+            })
+        }
+        else{
+            recomendationHeading.classList.add('noMovieFound');
+            recomendationHeading.textContent = 'OOPS!! No recommendations ';
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+
+}
+
+
 
 function populateInitialMovie(pageNumber){
     let request = fetch(`http://www.omdbapi.com/?s=marvel&page=${pageNumber}&apikey=${apiKey}`);
@@ -24,7 +68,6 @@ function populateInitialMovie(pageNumber){
         let array = data.Search;
 
         array.forEach((curr)=>{
-            console.log(curr);
             createCardAllMovies(curr);
         })
         

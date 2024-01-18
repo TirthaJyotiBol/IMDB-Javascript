@@ -19,6 +19,7 @@ body{
 #movie-logo-image{
     height: 85px;
     width: 105px;
+    margin-left: 20px;
 }
 
 #nav_elements{
@@ -68,7 +69,7 @@ body{
     font-size: 1.3rem;
     margin-top: -7%;
     color: rgb(255, 255, 255);
-    margin-left: 5vw;
+    margin-left: 4vw;
     border: 1px solid white;
     padding: 6px;
     border-radius: 50%;
@@ -158,6 +159,7 @@ body{
     width: 100%;
     border: 2px solid transparent;
     border-radius: 25px;
+    cursor: pointer;
 }
 
 .image_card:hover{
@@ -197,4 +199,13 @@ body{
 .movie-name{
     text-align: center;
     color: white;
+}
+
+
+
+/* style when no movie found */
+.noMovieFound{
+    margin-bottom: 15%;
+    text-align: center;
+    text-transform: uppercase;
 }

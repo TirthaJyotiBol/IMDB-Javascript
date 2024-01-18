@@ -21,7 +21,7 @@
             <li><a href="">Home</a></li>
             <li><a href="">Favourites</a></li>
             <li>
-                <input id="navbar_input" type="text" placeholder="search a movie ..."> 
+                <input id="navbar_input" type="text" placeholder="search your favourites ..."> 
                 <i id="search_icon_navbar" class="fas fa-search"></i>   
             </li>
 
@@ -42,7 +42,9 @@
     </div>
 
     <div id="search_movie_section">
-        <input placeholder="Search Your Movie..." type="text" name="search" id="search_movie_input">
+        <input placeholder="Search Your Movie..." type="text" name="search" id="search_movie_input"
+        onkeyup="searchMovie()"
+        >
     </div>
 
     <h2 id="all_movies_heading">Trending Movies</h2>
