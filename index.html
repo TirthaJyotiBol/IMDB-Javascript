@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
+
+<body>
+
+    <!-- Nav bar -->
+    <nav id="navbar">
+        <div id="movie-logo">
+            <img id="movie-logo-image" src="Images/movie_logo.png" alt="Loading..">
+        </div>
+
+        <ul id="nav_elements">
+            <li><a href="">Home</a></li>
+            <li><a href="">Favourites</a></li>
+            <li>
+                <input id="navbar_input" type="text" placeholder="search a movie ..."> 
+                <i id="search_icon_navbar" class="fas fa-search"></i>   
+            </li>
+
+            <li id="user_icon_navbar">
+                <a href="">
+                    <i class="fas fa-user"></i>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- Movie banner -->
+    <div class="movie-banner">
+        <img id="banner_poster" src="Images/brahmastra.webp" alt="">
+        <h2 id="movie-name-banner">Brahmastra Part 1: SHIVA</h2>
+    </div>
+
+    <div id="search_movie_section">
+        <input placeholder="Search Your Movie..." type="text" name="search" id="search_movie_input">
+    </div>
+
+    <h2 id="all_movies_heading">Trending Movies</h2>
+    <section class="all-movies">
+    </section>
+
+
+    <script src="Javascript/index.js"></script>
+</body>
+</html>
