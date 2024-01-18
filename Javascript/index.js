@@ -1,6 +1,7 @@
 let apiKey = 'bd85c8e1';
-
 let banner_poster = document.querySelector('#banner_poster');
+
+
 
 function bannerDetail(){
     let request = fetch(`http://www.omdbapi.com/?y=2023&apikey=${apiKey}`);
@@ -9,7 +10,6 @@ function bannerDetail(){
     })
     .then((data)=>{
         console.log(data);
-        // banner_poster.src = data.Poster;
     })
 }
 
@@ -97,6 +97,8 @@ function createCardAllMovies(curr){
     heartIcon.classList.add('fas');
     heartIcon.classList.add('fa-heart');
     heartIcon.classList.add('favouriteIcon');
+    heartIcon.id = curr.imdbID;
+
 
     let detailIcon = document.createElement('i');
     detailIcon.classList.add('fas');
@@ -115,10 +117,15 @@ function createCardAllMovies(curr){
 
     detailIcon.addEventListener('click',(e)=>{
         moveToDetails(curr);
+    });
+
+    // add to favourites
+    heartIcon.addEventListener('click',()=>{
+        
+        // implement the Like Option using local storage
     })
 
 }
-
 
 function render(){
     // populate the initial movies
@@ -128,3 +135,4 @@ function render(){
 }
 
 render();
+
