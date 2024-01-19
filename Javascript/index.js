@@ -30,6 +30,7 @@ function bannerDetail(){
 }
 
 
+
 async function searchMovie(){
     let input = document.querySelector('#search_movie_input').value;
 
@@ -194,25 +195,31 @@ function searchFavourites(){
         if(key!='loglevel'){
             let data = JSON.parse(localStorage.getItem(key));
             if(data.Title.includes(inputValue) || data.Year.includes(inputValue) ||  data.Type.includes(inputValue) ){
+                
+                let listItem = document.createElement('li');
+
                 let tag = `
-                <li>
-                    <div class="box">
+                    <div class="box" id="${key}">
                         <img src="${data.Poster}" alt="Loading...">
                         <div class="desc-box-fav">
                             <p class="movie-name-fav">${data.Title}</p>
                             <p class="movie-year-fav">${data.Year}</p>
                         </div>
                     </div>
-                </li>
                 `;
-                ul.insertAdjacentHTML("afterbegin",tag);
+                listItem.insertAdjacentHTML("afterbegin",tag);
+                ul.appendChild(listItem);
+
+                listItem.addEventListener('click',()=>{
+                    window.location.href  = 'moviepage.html?id='+data.imdbID;
+                })
             }
-            // console.log("New");
-            // console.log(data);
         }
     });
 
 }
+
+
 
 
 
