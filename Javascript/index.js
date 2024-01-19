@@ -32,6 +32,7 @@ function bannerDetail(){
 
 async function searchMovie(){
     let input = document.querySelector('#search_movie_input').value;
+
     let recomendationHeading = document.querySelector('#all_movies_heading');
     let allMoviesSection = document.querySelector('.all-movies');
 
@@ -73,7 +74,6 @@ async function searchMovie(){
 
 }
 
-
 // this function works to move to movie detail page and shows details about that movie
 function moveToDetails(movieObject){
     window.location.href  = 'moviepage.html?id='+movieObject.imdbID;
@@ -113,8 +113,17 @@ function createCardAllMovies(curr){
     let heartIcon = document.createElement('i');
     heartIcon.classList.add('fas');
     heartIcon.classList.add('fa-heart');
-    heartIcon.classList.add('favouriteIcon');
+    // heartIcon.classList.add('favouriteIcon');
     heartIcon.id = curr.imdbID;
+
+    if(isLiked(curr.imdbID)){
+        heartIcon.classList.add('favouriteIconLiked');
+        heartIcon.classList.remove('favouriteIcon');
+    }
+    else{
+        heartIcon.classList.remove('favouriteIconLiked');
+        heartIcon.classList.add('favouriteIcon');
+    }
 
 
     let detailIcon = document.createElement('i');
@@ -143,34 +152,67 @@ function createCardAllMovies(curr){
         if(!localStorage.getItem(key)){
             localStorage.setItem(key,JSON.stringify(curr));
             console.log("liked"); 
+            heartIcon.classList.add('favouriteIconLiked');
+            heartIcon.classList.remove('favouriteIcon');
         }
         else{
             localStorage.removeItem(key);
             console.log("removed");
+            heartIcon.classList.remove('favouriteIconLiked');
+            heartIcon.classList.add('favouriteIcon');
         }
          
     })
 
 }
 
+//  checks if the movie is added to favourite or not
+function isLiked(id){
+    let ele = localStorage.getItem(id);
+    if(ele){
+        return true;
+    }
+    return false;
+}
 
-// function toggleLikes(button,movieObject){
-//     let find = favourites.findIndex((ele)=>{
-//         return ele.imdbID===movieObject.imdbID;
-//     })
 
-//     // add to favourites
-//     if(favourites.length==0 || find==-1){
-//         favourites.push(movieObject);
-//     }
+function searchFavourites(){
+    let input = document.querySelector('#navbar_input');
+    let inputValue = input.value.trim();
+    let ul = document.querySelector('#list-box-fav');
+    ul.innerHTML = '';
 
-//     // remove from favourites
-//     else{
-//         favourites.splice(find,1);
-//     }
-//     localStorage.setItem("favourites",JSON.stringify(movieObject));
-//     // console.log(favourites);
-// }
+    if(inputValue.length==0){
+        ul.style.display = 'none';
+        return;
+    }
+    else{
+        ul.style.display = 'block';
+    }
+
+    Object.keys(localStorage).forEach(key => {
+        if(key!='loglevel'){
+            let data = JSON.parse(localStorage.getItem(key));
+            if(data.Title.includes(inputValue) || data.Year.includes(inputValue) ||  data.Type.includes(inputValue) ){
+                let tag = `
+                <li>
+                    <div class="box">
+                        <img src="${data.Poster}" alt="Loading...">
+                        <div class="desc-box-fav">
+                            <p class="movie-name-fav">${data.Title}</p>
+                            <p class="movie-year-fav">${data.Year}</p>
+                        </div>
+                    </div>
+                </li>
+                `;
+                ul.insertAdjacentHTML("afterbegin",tag);
+            }
+            // console.log("New");
+            // console.log(data);
+        }
+    });
+
+}
 
 
 

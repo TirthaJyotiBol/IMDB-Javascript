@@ -22,7 +22,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="favourites.html" target="_blank">Favourites</a></li>
             <li>
-                <input id="navbar_input" type="text" placeholder="search your favourites ..."> 
+                <input id="navbar_input" type="text" placeholder="search your favourites ..." onkeyup="searchFavourites()"> 
                 <i id="search_icon_navbar" class="fas fa-search"></i>   
             </li>
 
@@ -35,6 +35,11 @@
         </ul>
 
     </nav>
+
+    <Element class="displayFavoutrites" >
+        <ul id="list-box-fav">
+        </ul>
+    </Element>
 
     <!-- Movie banner -->
     <div class="movie-banner">
