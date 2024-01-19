@@ -1,6 +1,8 @@
 function moveToDetails(movieObject){
-    window.location.href  = '/moviepage.html?id='+movieObject.imdbID;
+    window.location.href  = 'moviepage.html?id='+movieObject.imdbID;
 }
+
+//  window.location.href  = '/IMDB-Javascript/moviepage.html?id='+movieObject.imdbID;
 
 function createCardAllMovies(curr){
     let allMovieSection = document.querySelector('.all-movies');
