@@ -12,15 +12,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
 
 <body>
+
+    <!-- Sidebar for mobile phones -->
     <div id="hamburger-menu" class="ham_icon" style="display: none;">
         <i class="fas fa-bars ham_icon icon_click" ></i>     
     </div>
-
     <sidebar id="sidebar" style="display: none">
         <i class="fas fa-times cross_icon"></i>
         <div id="sidebar_elements">
-            <li><a href="index.html">Home</a></li>
-             <li><a href="favourites.html" target="_blank">Favourites</a></li>
+            <li class="list-icon-content-sidebar"><a href="index.html">Home</a></li>
+             <li class="list-icon-content-sidebar"><a href="favourites.html" target="_blank">Favourites</a></li>
         </div>
     </sidebar>   
 
@@ -29,7 +30,11 @@
         <div id="movie-logo">
             <img id="movie-logo-image" src="Images/movie_logo.png" alt="Loading..">
         </div>
-
+        <!-- Nav Elements
+            : input
+            : tabs
+            : icon
+        -->
         <ul id="nav_elements">
             <li><a href="index.html">Home</a></li>
             <li><a href="favourites.html" target="_blank">Favourites</a></li>
@@ -48,6 +53,9 @@
 
     </nav>
 
+    <!-- 
+        box that shows searhed favourites
+     -->
     <Element class="displayFavoutrites" >
         <ul id="list-box-fav">
         </ul>
@@ -59,6 +67,10 @@
         <h2 id="movie-name-banner">Brahmastra Part 1: SHIVA</h2>
     </div>
 
+    <!-- 
+        search field for input by user
+        It shows recommended movies typed by user
+     -->
     <div id="search_movie_section">
         <input placeholder="Search Your Movie..." type="text" name="search" id="search_movie_input"
         onkeyup="searchMovie()"
@@ -66,6 +78,11 @@
     </div>
 
     <h2 id="all_movies_heading">Trending Movies</h2>
+
+    <!--
+         All the movies are displayed here
+        Dynamic display is through Javascrpit
+    -->
     <section class="all-movies">
     </section>
 

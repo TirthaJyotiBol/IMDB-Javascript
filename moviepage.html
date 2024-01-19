@@ -9,13 +9,37 @@
 </head>
 
 <link rel="stylesheet" href="css/Laptop_mid.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
 
 <body>
+
+    <!-- Sidebar for small devices -->
+    <div id="hamburger-menu" class="ham_icon" style="display: none;">
+        <i class="fas fa-bars ham_icon icon_click" ></i>     
+    </div>
+
+    <sidebar id="sidebar" style="display: none">
+        <i class="fas fa-times cross_icon"></i>
+        <div id="sidebar_elements">
+            <li class="list-icon-content-sidebar"><a href="index.html">Home</a></li>
+             <li class="list-icon-content-sidebar"><a href="favourites.html" target="_blank">Favourites</a></li>
+        </div>
+    </sidebar> 
+
     
     <section>
-            <h1 id="movie-name"></h1>
+        <!-- heading -->
+        <h1 id="movie-name"></h1>
+
+        <!-- main body -->
         <main id="main_section_display_movies">
-            <img src="" alt="loading" class="lhs">
+            <!-- if image not loaded then this runs hte setDefault
+                which loads a predefined image
+            -->
+            <img src="" alt="loading" class="lhs" onerror="setDefault()">
+
+            <!-- Details of the movie fetched from API
+            -->
             <div class="details">
                 <span>
                     Release Date: <p id="movie-release-year"></p>
@@ -40,7 +64,14 @@
                 
             </div>
         </main>
-    
+
+        <!-- Movie Plot -->
+        <h3 id="plotHeading">plot</h3>
+        <div id="plot"></div>
+        
+        <!-- Movie rating 
+            Shows all ratings fetched from array from the API    
+        -->
         <div id="rating-box-container">    </div>
     </section>
     <script src="Javascript/moviepage.js"></script>

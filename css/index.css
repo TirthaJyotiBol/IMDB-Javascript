@@ -13,7 +13,6 @@
 
 body{
     background-color: rgb(1, 24, 43);
-    /* overflow: hidden; */
 }
 
 #movie-logo-image{
@@ -41,10 +40,11 @@ body{
 #nav_elements li a{
     color: white;
     text-decoration: none;
+    transition: 0.8s ease-in-out;
 }
 
 #nav_elements li a:hover{
-    color: aqua;
+    color: rgb(255, 230, 4);
 }
 
 #navbar_input{
@@ -243,15 +243,16 @@ body{
 
 .displayFavoutrites .box{
     width: 250px;
-    padding: 5px;
+    padding: 10px;
     height: 45px;
     border: none;
     z-index: 2;
     cursor: pointer;
     display: flex;
     position: relative; 
+    color: white;
     /* left: 62%;  */
-    background-color: rgba(255, 255, 255, 0.267);
+    background-color: rgba(0, 0, 0, 0.425);
     margin: 4px;
 }
 

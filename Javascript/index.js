@@ -1,9 +1,16 @@
+
+// Fetch all the necessary elements
 let apiKey = 'bd85c8e1';
 let banner_poster = document.querySelector('#banner_poster');
 let banner_name = document.querySelector('#movie-name-banner');
 
 
-
+/* 
+    when user Types and the key is up then
+    This function automatically searches with the keyword matcking movies
+    - If response is OK then createCard() will create the movie card and append to
+      its respective position
+*/
 async function searchMovie(){
     let input = document.querySelector('#search_movie_input').value;
 
@@ -11,18 +18,19 @@ async function searchMovie(){
     let allMoviesSection = document.querySelector('.all-movies');
 
     input = input.trim();
-    
+    allMoviesSection.innerHTML = '';
     try{
 
-        let url =  `http://www.omdbapi.com/?s=${input}&page=1&apikey=${apiKey}`;
+        let url =  `http://www.omdbapi.com/?s=${input}&apikey=${apiKey}`;
         const req = await fetch(url);
         const res = await req.json();
 
-        allMoviesSection.innerHTML = '';
+        // if user only types space or clears the input value
+        // then show the default page of Marvel movie
         if(input.length==0){
             recomendationHeading.classList.remove('noMovieFound');
-            recomendationHeading.textContent = 'Recommended Movies';
-            populateInitialMovie(4);
+            recomendationHeading.textContent = 'Trendings Movies';
+            populateInitialMovie(6);
             return;
         }
         
@@ -30,10 +38,13 @@ async function searchMovie(){
             recomendationHeading.classList.remove('noMovieFound');
             allMoviesSection.style.display = 'flex';
             recomendationHeading.textContent = 'Recommended Movies';
-            
-            let array = res.Search;
+            console.log(res);
 
+            let array = res.Search;
+            console.log(array);
             array.forEach((curr)=>{
+                // This function will automaticlally create card and append to its
+                // correct position
                 createCardAllMovies(curr);
             })
         }
@@ -53,7 +64,10 @@ function moveToDetails(movieObject){
     window.location.href  = 'moviepage.html?id='+movieObject.imdbID;
 }
 
+// initially when the document loads
+// This will be visible to user
 
+// page number is taken as parameter because it depends on us how many results we wany user to visibe
 function populateInitialMovie(pageNumber){
     let request = fetch(`http://www.omdbapi.com/?s=marvel&page=${pageNumber}&apikey=${apiKey}`);
     request.then((res)=>{
@@ -70,6 +84,9 @@ function populateInitialMovie(pageNumber){
     })
 }
 
+// This is the function that takes movie object as parameter
+// and automatically creates element and append to its respective place
+
 function createCardAllMovies(curr){
     let allMovieSection = document.querySelector('.all-movies');
 
@@ -80,6 +97,13 @@ function createCardAllMovies(curr){
     let cardImage = document.createElement('img');
     cardImage.classList.add('image_card');
     cardImage.src = curr.Poster;
+    cardImage.onerror=()=>{
+        cardImage.src = 'Images/default.jpg';
+    }
+
+    cardImage.onclick=()=>{
+        moveToDetails(curr);
+    }
 
     let footerCard = document.createElement('div');
     footerCard.classList.add('footer_card');
@@ -90,6 +114,7 @@ function createCardAllMovies(curr){
     // heartIcon.classList.add('favouriteIcon');
     heartIcon.id = curr.imdbID;
 
+    //  change colour of like button if element is liked or not
     if(isLiked(curr.imdbID)){
         heartIcon.classList.add('favouriteIconLiked');
         heartIcon.classList.remove('favouriteIcon');
@@ -115,6 +140,8 @@ function createCardAllMovies(curr){
     footerCard.appendChild(detailIcon);
     movieCard.appendChild(movieName);
 
+    // when clicked on detail icon, The page redirects to detail page
+    // where the detail about the movie is shown
     detailIcon.addEventListener('click',(e)=>{
         moveToDetails(curr);
     });
@@ -123,15 +150,25 @@ function createCardAllMovies(curr){
     heartIcon.addEventListener('click',()=>{    
         let key = heartIcon.id;
 
+        //  used local storage of "key":"value" pair to store favourites
+        /*
+            key : imdbID
+            value : movie-object
+        */
         if(!localStorage.getItem(key)){
+
+            // if not liked the add to local storagae
             localStorage.setItem(key,JSON.stringify(curr));
-            console.log("liked"); 
+
+            // colouring 
             heartIcon.classList.add('favouriteIconLiked');
             heartIcon.classList.remove('favouriteIcon');
         }
         else{
+            // if already liked the remove from storage
             localStorage.removeItem(key);
-            console.log("removed");
+
+            // coloring
             heartIcon.classList.remove('favouriteIconLiked');
             heartIcon.classList.add('favouriteIcon');
         }
@@ -150,8 +187,16 @@ function isLiked(id){
 }
 
 
-
+// sidebar implementation for small devices
 function sidebar(){
+    /*
+        - sidebar is the div where elements are displayed
+        - hamIcon is the hamburger icon that is displayed initialy at small screens
+        - when we click on hamburger icon then the sidebar appears, hamIcon disappears and the 
+           crossbar to shut the sidebar appears
+        - whenever click on cross icon take place then sidebar disappers wth the cross button
+            and the hamicon again appears.
+     */
     let cross = document.querySelector('.cross_icon');
     let sidebar = document.querySelector('#sidebar');
     let hamIcon = document.querySelector('.ham_icon');
@@ -166,6 +211,11 @@ function sidebar(){
     })
 }
 
+/*
+    This is an extra functionality implemented in the navbar input field
+    Here user can search his favourites and particularly boxes appear near the field
+    The boxes contains search results
+*/
 
 function searchFavourites(){
     let input = document.querySelector('#navbar_input');
@@ -181,9 +231,12 @@ function searchFavourites(){
         ul.style.display = 'block';
     }
 
+    // Traverse the whole local storage to search for results
     Object.keys(localStorage).forEach(key => {
         if(key!='loglevel'){
             let data = JSON.parse(localStorage.getItem(key));
+
+            // user can search by "movie-name","year","Type" of the movie
             if(data.Title.includes(inputValue) || data.Year.includes(inputValue) ||  data.Type.includes(inputValue) ){
                 
                 let listItem = document.createElement('li');
@@ -219,6 +272,7 @@ function render(){
         populateInitialMovie(i);
     }
 
+    // use the siebar 
     sidebar();
 }
 

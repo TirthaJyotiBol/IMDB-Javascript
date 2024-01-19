@@ -1,9 +1,12 @@
+
+// this redirects to the movie detail page with the ID as parameter
 function moveToDetails(movieObject){
     window.location.href  = 'moviepage.html?id='+movieObject.imdbID;
 }
 
 //  window.location.href  = '/IMDB-Javascript/moviepage.html?id='+movieObject.imdbID;
 
+// create movie card and show in the page
 function createCardAllMovies(curr){
     let allMovieSection = document.querySelector('.all-movies');
 
@@ -14,6 +17,9 @@ function createCardAllMovies(curr){
     let cardImage = document.createElement('img');
     cardImage.classList.add('image_card');
     cardImage.src = curr.Poster;
+    cardImage.onerror=()=>{
+        cardImage.src = 'Images/default.jpg';
+    }
 
     let footerCard = document.createElement('div');
     footerCard.classList.add('footer_card');
@@ -62,7 +68,7 @@ function createCardAllMovies(curr){
 
 }
 
-
+// Removes all the data from local storage
 function clearAllFavourites(){
     let clear_btn = document.querySelector('#clear_favourites');
     clear_btn.addEventListener('click',()=>{
