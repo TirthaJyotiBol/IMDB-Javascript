@@ -2,33 +2,6 @@ let apiKey = 'bd85c8e1';
 let banner_poster = document.querySelector('#banner_poster');
 let banner_name = document.querySelector('#movie-name-banner');
 
-// localStorage.clear();
-// let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
-
-
-function bannerDetail(){
-    let request = fetch(`http://www.omdbapi.com/?s=india&apikey=${apiKey}`);
-    request.then((res)=>{
-        return res.json();
-    })
-    .then((data)=>{
-        let array = data.Search;
-        
-        let curr = 0;
-        if(curr>=array.length){
-            curr= 0;
-        }
-
-        banner_poster.src = array[curr].Poster;
-        banner_name.textContent = array[curr].Title;
-
-        setInterval(()=>{
-            curr+=1;
-        },1000);
-
-    })
-}
-
 
 
 async function searchMovie(){
