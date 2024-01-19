@@ -177,6 +177,23 @@ function isLiked(id){
 }
 
 
+
+function sidebar(){
+    let cross = document.querySelector('.cross_icon');
+    let sidebar = document.querySelector('#sidebar');
+    let hamIcon = document.querySelector('.ham_icon');
+
+    cross.addEventListener('click',()=>{
+        sidebar.style.display = 'none';
+        hamIcon.style.display = 'none';
+    })
+
+    hamIcon.addEventListener('click',()=>{
+        sidebar.style.display = 'block';
+    })
+}
+
+
 function searchFavourites(){
     let input = document.querySelector('#navbar_input');
     let inputValue = input.value.trim();
@@ -228,6 +245,8 @@ function render(){
     for(let i=1;i<5;i++){
         populateInitialMovie(i);
     }
+
+    sidebar();
 }
 
 render();

@@ -1,0 +1,360 @@
+@media only screen and (max-width: 1024px) {
+    #navbar {
+        width: 90%;
+    }
+    #nav_elements {
+        margin-left: 27%;
+    }
+    #movie-name-banner {
+        margin-top: -13%;
+        margin-left: 7%;
+        font-size: 4rem;
+    }
+
+    #search_movie_section input {
+        width: 50%;
+        height: 51px;
+        margin-left: 26%;
+    }
+
+    #clear_favourites {
+        color: red;
+        padding: 15px;
+        margin-left: 40%;
+    }
+}
+
+
+@media only screen and (max-width: 768px){
+    #navbar {
+        width: 100%;
+    }
+    #nav_elements {
+        margin-left: 3%;
+    }
+    #navbar_input {
+        width: 256px;
+    }
+    .movie-banner img {
+        width: 101%;
+        margin-left: 5%;
+    }
+    #movie-name-banner {
+        margin-top: -39%;
+        margin-left: 12%;
+        font-size: 2rem;
+    }
+
+    #search_movie_section input {
+        height: 37px;
+    }
+
+    #all_movies_heading {
+        font-size: 2rem;
+        margin-top: 4%;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .movie-card {
+        height: 52vh;
+        width: 167px;
+        margin: 24px;
+        margin-bottom: 8px;
+    }
+
+    .movie-card .footer_card i {
+        font-size: 27px;
+        margin-top: -40px;
+    }
+
+    .movie-card .footer_card .detailIcon {
+        color: yellow;
+        margin-left: 76%;
+    }
+
+    .movie-name {
+        font-size: 11px;
+    }
+
+    .displayFavoutrites {
+        left: 45%;
+    }
+
+    #main_section_display_movies img {
+        width: 44%;
+        height: 400px;
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    }
+
+    #clear_favourites {
+        color: red;
+        padding: 15px;
+        margin-left: 36%;
+    }
+
+}
+
+@media only screen and (max-width: 425px){
+
+    .movie-card .footer_card i:hover{
+        scale: none;
+    }
+
+    .movie-card .footer_card .favouriteIcon {
+        color: rgb(255, 255, 255);
+        margin-left: 0%;
+    }
+    
+    .movie-card .footer_card .favouriteIconLiked {
+        color: rgb(255, 0, 0);
+        margin-left: -0%;
+    }
+    
+
+    
+    .ham_icon{
+        display: block;
+    }
+
+    /* sidebar */
+    sidebar#sidebar {
+        height: 92vh;
+        width: 100vw;
+        background: #000000de;
+        position: absolute;
+        transition: 2s ease-in-out;
+    }
+
+    .cross_icon {
+        color: white;
+        font-size: 3rem;
+        margin: 13px;
+        transition: 2s ease-in-out;
+    }
+
+    #sidebar_elements {
+        color: white;
+        list-style: none;
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 31%;
+    }
+
+    #sidebar_elements li a{
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+
+
+    #navbar {
+        display: none;
+    }
+
+    .movie-banner {
+        margin-left: -20px;
+        margin-top: -5px;
+        width: 100%;
+        height: 87vh;
+        border: none;
+        border-radius: 0;
+    }
+
+    .movie-banner img {
+        width: 104%;
+        margin-left: 0;
+        height: 102%;
+        border-radius:0;
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    }
+
+    #search_movie_section input {
+        height: 31px;
+        width: 87%;
+        font-size: 1rem;
+        margin-left: 19px;
+    }
+
+    #movie-name-banner {
+        margin-top: -106%;
+        margin-left: 18%;
+        font-size: 24px;
+    }
+
+
+    #all_movies_heading {
+        font-size: 43px;
+        margin-top: 10%;
+    }
+
+    .all-movies {
+        width: 100%;
+    }
+    /* .movie-card {
+        height: 24vh;
+        width: 82px;
+        margin: 24px;
+        margin-bottom: 38px;
+    } */
+
+    .movie-card {
+        height: 64vh;
+        width: 100%;
+        margin: 24px;
+        margin-bottom: 1px;
+    }
+
+    .movie-card .footer_card i {
+        font-size: 32px;
+        margin-top: -30px;
+    }
+
+    .movie-name {
+        font-size: 20px;
+    }
+
+    .movie-card .footer_card .favouriteIcon {
+        color: rgb(255, 255, 255);
+        margin-left: 2px;
+    }
+    .movie-card .footer_card .detailIcon {
+        color: yellow;
+        margin-left: 83%;
+    }
+
+
+    /* Display Movie */
+    #main_section_display_movies {
+        width: 95vw;
+        margin: 3%;
+        margin-top: 4%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #main_section_display_movies img {
+        width: 100%;
+        height: 332px;
+        border-radius: 25px;
+    }
+
+    .details {
+        width: 91%;
+        font-size: 1.4rem;
+        margin-left: 0;
+        padding-left: 3px;
+        border: none;
+        margin-bottom: 6%;
+        margin-top: 3%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rating-box {
+        width: 74px;
+        height: 84px;
+        font-size: 8px;
+        padding: 13px;
+    }
+
+    .rated-value {
+        font-size: 15px;
+        display: flex;
+        flex-direction: column-reverse;
+        color: yellow;
+        align-items: center;
+    }
+
+    #movie-name {
+        font-size: 2rem;
+    }
+
+    .ham_icon {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: white;
+        font-size: 3rem;
+        margin: 8px;
+        display: block !important;
+        position: absolute;
+    }
+
+
+    /* Favourites section */
+    #clear_favourites {
+        padding: 15px;
+        margin-left: 26%;
+    }
+
+}
+
+/* Small Mobile phones */
+@media only screen and (max-width:375px) {
+    #movie-name-banner {
+        margin-top: -112%;
+        margin-left: 18%;
+        font-size: 20px;
+    }
+
+    #movie-name {
+        font-size: 21px;
+    }
+
+    /* Favourites Section  */
+    #clear_favourites {
+        padding: 15px;
+        margin-left: 21%;
+    }
+}
+
+
+/* extra small device */
+@media only screen and (max-width:320px) {
+
+    .movie-banner img {
+        width: 106%;
+    }
+
+    #movie-name-banner {
+        margin-top: -127%;
+    }
+
+    #movie-name {
+        font-size: 21px;
+    }
+
+    #search_movie_section input {
+        width: 87%;
+        margin-left: 13px;
+        margin-top: 51px;
+    }
+
+    #all_movies_heading {
+        font-size: 29px;
+        margin-top: 10%;
+        margin-bottom: 9%;
+    }
+
+    .movie-card .footer_card .detailIcon {
+        color: rgb(255, 230, 0);
+        margin-left: -51%;
+        margin-left: 78%;
+    }
+
+    .movie-card .footer_card .favouriteIcon {
+        color: rgb(0 255 116);
+        margin-left: 2px;
+    }
+
+    /* Favourites */
+    #clear_favourites {
+        padding: 15px;
+        margin-left: 15%;
+    }
+
+}
