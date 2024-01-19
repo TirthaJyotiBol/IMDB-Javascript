@@ -1,9 +1,9 @@
-The following are the features : 
-    1. Search for Favourite movies.
-    2. Search for movies.
-    3. Get details of a particular movie.
-    4. Add and remove from Favourites.
-    5. Responsiveness
+    The following are the features : 
+        -> Search for Favourite movies.
+        -> Search for movies.
+        -> Get details of a particular movie.
+        -> Add and remove from Favourites.
+        -> Responsiveness
 
 Description: 
 
