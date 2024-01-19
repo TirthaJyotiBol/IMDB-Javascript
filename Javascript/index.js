@@ -275,6 +275,10 @@ function render(){
 
     // use the siebar 
     sidebar();
+
+    let date = document.querySelector('#date');
+    let d = new Date();
+    date.textContent = d.getFullYear();
 }
 
 render();

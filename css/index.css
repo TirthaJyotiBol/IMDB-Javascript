@@ -264,3 +264,49 @@ body{
     height: 90%;
     margin-right: 10px;
 }
+
+
+/* footer */
+Footer{
+    height: 20vh;
+    width: 100%;
+}
+
+Footer div{
+    height: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+Footer img{
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+Footer img:hover{
+    scale: 120%;
+    cursor: pointer;
+    opacity: 80%;
+}
+
+Copyright{
+    color: white;
+    height: 45px;
+    display: flex;
+    font-size: 1.5rem;
+    margin-top: 2px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#trade{
+    margin-left: 8px;
+    color: rgb(255, 255, 255);
+}
+#date{
+    margin-left: 4px;
+}
