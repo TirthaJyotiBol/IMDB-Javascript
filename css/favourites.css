@@ -1,0 +1,24 @@
+#fav_heading{
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+#clear_favourites{
+    color: red;
+    padding: 15px;
+    margin-left: 42%;
+    margin-top: 4%;
+    cursor: pointer;
+    border: 1px solid white;
+    background: transparent;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    transition: 0.5s ease-in-out;
+}
+
+#clear_favourites:hover{
+    color: yellow;
+    border: 1px solid yellow;
+}

@@ -1,17 +1,34 @@
 let apiKey = 'bd85c8e1';
 let banner_poster = document.querySelector('#banner_poster');
+let banner_name = document.querySelector('#movie-name-banner');
 
+// localStorage.clear();
+// let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
 
 
 function bannerDetail(){
-    let request = fetch(`http://www.omdbapi.com/?y=2023&apikey=${apiKey}`);
+    let request = fetch(`http://www.omdbapi.com/?s=india&apikey=${apiKey}`);
     request.then((res)=>{
         return res.json();
     })
     .then((data)=>{
-        console.log(data);
+        let array = data.Search;
+        
+        let curr = 0;
+        if(curr>=array.length){
+            curr= 0;
+        }
+
+        banner_poster.src = array[curr].Poster;
+        banner_name.textContent = array[curr].Title;
+
+        setInterval(()=>{
+            curr+=1;
+        },1000);
+
     })
 }
+
 
 async function searchMovie(){
     let input = document.querySelector('#search_movie_input').value;
@@ -120,12 +137,42 @@ function createCardAllMovies(curr){
     });
 
     // add to favourites
-    heartIcon.addEventListener('click',()=>{
-        
-        // implement the Like Option using local storage
+    heartIcon.addEventListener('click',()=>{    
+        let key = heartIcon.id;
+
+        if(!localStorage.getItem(key)){
+            localStorage.setItem(key,JSON.stringify(curr));
+            console.log("liked"); 
+        }
+        else{
+            localStorage.removeItem(key);
+            console.log("removed");
+        }
+         
     })
 
 }
+
+
+// function toggleLikes(button,movieObject){
+//     let find = favourites.findIndex((ele)=>{
+//         return ele.imdbID===movieObject.imdbID;
+//     })
+
+//     // add to favourites
+//     if(favourites.length==0 || find==-1){
+//         favourites.push(movieObject);
+//     }
+
+//     // remove from favourites
+//     else{
+//         favourites.splice(find,1);
+//     }
+//     localStorage.setItem("favourites",JSON.stringify(movieObject));
+//     // console.log(favourites);
+// }
+
+
 
 function render(){
     // populate the initial movies
