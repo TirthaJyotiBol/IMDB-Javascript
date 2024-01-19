@@ -11,7 +11,8 @@ let banner_name = document.querySelector('#movie-name-banner');
     - If response is OK then createCard() will create the movie card and append to
       its respective position
 */
-async function searchMovie(){
+async function searchMovie()
+{
     let input = document.querySelector('#search_movie_input').value;
 
     let recomendationHeading = document.querySelector('#all_movies_heading');

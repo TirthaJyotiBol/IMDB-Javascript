@@ -77,6 +77,30 @@ function clearAllFavourites(){
     })
 }
 
+// sidebar implementation for small devices
+function sidebar(){
+    /*
+        - sidebar is the div where elements are displayed
+        - hamIcon is the hamburger icon that is displayed initialy at small screens
+        - when we click on hamburger icon then the sidebar appears, hamIcon disappears and the 
+           crossbar to shut the sidebar appears
+        - whenever click on cross icon take place then sidebar disappers wth the cross button
+            and the hamicon again appears.
+     */
+    let cross = document.querySelector('.cross_icon');
+    let sidebar = document.querySelector('#sidebar');
+    let hamIcon = document.querySelector('.ham_icon');
+
+    cross.addEventListener('click',()=>{
+        sidebar.style.display = 'none';
+        hamIcon.style.display = 'none';
+    })
+
+    hamIcon.addEventListener('click',()=>{
+        sidebar.style.display = 'block';
+    })
+}
+
 
 
 // populate favourites
@@ -103,6 +127,7 @@ function render(){
         heading.textContent = 'No Favourites';
     }
     clearAllFavourites();
+    sidebar();
 }
 
 
