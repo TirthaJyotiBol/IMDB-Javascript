@@ -76,7 +76,7 @@ async function searchMovie(){
 
 // this function works to move to movie detail page and shows details about that movie
 function moveToDetails(movieObject){
-    window.location.href  = '/moviepage.html?id='+movieObject.imdbID;
+    window.location.href  = 'moviepage.html?id='+movieObject.imdbID;
 }
 
 
