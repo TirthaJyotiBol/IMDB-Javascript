@@ -22,7 +22,7 @@ body{
 }
 
 #nav_elements{
-    margin-left: 45%;
+    margin-left: 40%;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -50,7 +50,7 @@ body{
 #navbar_input{
     padding: 7px;
     padding-left: 18px;
-    width: 180px;
+    width: 205px;
     margin-top: -10%;
     background: transparent;
     border: 1px solid white;
