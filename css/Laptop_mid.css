@@ -1,9 +1,9 @@
 @media only screen and (max-width: 1024px) {
     #navbar {
-        width: 90%;
+    width: 100%;
     }
     #nav_elements {
-        margin-left: 27%;
+    margin-left: 24%;
     }
     #movie-name-banner {
         margin-top: -13%;
@@ -305,6 +305,10 @@
     #clear_favourites {
         padding: 15px;
         margin-left: 26%;
+    }
+
+    .displayFavoutrites {
+        display:"none";
     }
 
 }
