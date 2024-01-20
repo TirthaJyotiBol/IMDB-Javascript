@@ -21,6 +21,10 @@ function createCardAllMovies(curr){
         cardImage.src = 'Images/default.jpg';
     }
 
+    cardImage.addEventListener('click',()=>{
+        moveToDetails(curr);
+    })
+
     let footerCard = document.createElement('div');
     footerCard.classList.add('footer_card');
 
@@ -45,6 +49,7 @@ function createCardAllMovies(curr){
     footerCard.appendChild(heartIcon);
     footerCard.appendChild(detailIcon);
     movieCard.appendChild(movieName);
+
 
     detailIcon.addEventListener('click',(e)=>{
         moveToDetails(curr);
